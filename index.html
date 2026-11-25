@@ -24,6 +24,7 @@ li:nth-child(2){--accent:#edca8f}
 li:nth-child(3){--accent:#c7b8ee}
 li:nth-child(4){--accent:#91cfe9}
 li:nth-child(5){--accent:#eeaebd}
+li:nth-child(6){--accent:#cbdc92}
 a{display:grid;min-height:13rem;grid-template-rows:1fr auto;gap:1rem;padding:1rem;text-decoration:none;color:var(--paper);border:2px solid var(--line);background:#1a1e23;box-shadow:4px 4px #08090b}
 a:hover,a:focus-visible{border-color:var(--accent);background:#23292e}
 a:focus-visible{outline:2px dashed var(--accent);outline-offset:4px}
@@ -54,6 +55,7 @@ a canvas{height:3.5rem}
     <li><a href="https://mikeroute66.github.io/Collatz/"><canvas id="collatz" width="104" height="48" aria-hidden="true"></canvas><span class="label">Collatz Explorer <span class="arrow" aria-hidden="true">↗</span></span></a></li>
     <li><a href="https://github.com/MikeRoute66/Evolution"><canvas id="evolution" width="104" height="48" aria-hidden="true"></canvas><span class="label">Evolution <span class="arrow" aria-hidden="true">↗</span></span></a></li>
     <li><a href="https://mikeroute66.github.io/Lambda/"><canvas id="lambda" width="104" height="48" aria-hidden="true"></canvas><span class="label">Lambda <span class="arrow" aria-hidden="true">↗</span></span></a></li>
+    <li><a href="https://mikeroute66.github.io/Conway-Combat/"><canvas id="conway" width="104" height="48" aria-hidden="true"></canvas><span class="label">Conway Combat <span class="arrow" aria-hidden="true">↗</span></span></a></li>
   </ul>
 </section>
 </main>
@@ -135,6 +137,18 @@ draw('lambda', '#eeaebd', (pixel, line) => {
     line(52 + offset, 20, 41 + offset, 37);
     line(62 + offset, 37, 66 + offset, 37);
   }
+});
+draw('conway', '#cbdc92', (pixel) => {
+  const glider = [[1,0],[2,1],[0,2],[1,2],[2,2]];
+  for (let row = 0; row < 7; row++) {
+    for (let column = 0; column < 11; column++) {
+      pixel(22 + column * 6, 6 + row * 6, 1, .28);
+    }
+  }
+  glider.forEach(([x,y]) => {
+    pixel(29 + x * 6, 7 + y * 6, 4);
+    pixel(71 - x * 6, 37 - y * 6, 4, .62);
+  });
 });
 </script>
 </body>

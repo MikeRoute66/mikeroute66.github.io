@@ -25,6 +25,7 @@ li:nth-child(3){--accent:#c7b8ee}
 li:nth-child(4){--accent:#91cfe9}
 li:nth-child(5){--accent:#eeaebd}
 li:nth-child(6){--accent:#cbdc92}
+li:nth-child(7){--accent:#efb598}
 a{display:grid;min-height:13rem;grid-template-rows:1fr auto;gap:1rem;padding:1rem;text-decoration:none;color:var(--paper);border:2px solid var(--line);background:#1a1e23;box-shadow:4px 4px #08090b}
 a:hover,a:focus-visible{border-color:var(--accent);background:#23292e}
 a:focus-visible{outline:2px dashed var(--accent);outline-offset:4px}
@@ -56,6 +57,7 @@ a canvas{height:3.5rem}
     <li><a href="https://github.com/MikeRoute66/Evolution"><canvas id="evolution" width="104" height="48" aria-hidden="true"></canvas><span class="label">Evolution <span class="arrow" aria-hidden="true">↗</span></span></a></li>
     <li><a href="https://mikeroute66.github.io/Lambda/"><canvas id="lambda" width="104" height="48" aria-hidden="true"></canvas><span class="label">Lambda <span class="arrow" aria-hidden="true">↗</span></span></a></li>
     <li><a href="https://mikeroute66.github.io/Conway-Combat/"><canvas id="conway" width="104" height="48" aria-hidden="true"></canvas><span class="label">Conway Combat <span class="arrow" aria-hidden="true">↗</span></span></a></li>
+    <li><a href="https://mikeroute66.github.io/Baby-Merchant/"><canvas id="merchant" width="104" height="48" aria-hidden="true"></canvas><span class="label">Baby Merchant <span class="arrow" aria-hidden="true">↗</span></span></a></li>
   </ul>
 </section>
 </main>
@@ -149,6 +151,19 @@ draw('conway', '#cbdc92', (pixel) => {
     pixel(29 + x * 6, 7 + y * 6, 4);
     pixel(71 - x * 6, 37 - y * 6, 4, .62);
   });
+});
+draw('merchant', '#efb598', (pixel, line) => {
+  line(37,9,66,9);
+  line(37,9,31,18);
+  line(66,9,72,18);
+  line(31,18,72,18);
+  line(35,19,35,36);
+  line(68,19,68,36);
+  line(33,36,70,36);
+  line(35,27,68,27);
+  [36,44,52,60,68].forEach(x => pixel(x - 1,18,3));
+  pixel(46,22,4,.75);
+  pixel(54,23,3,.75);
 });
 </script>
 </body>
